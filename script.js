@@ -22,7 +22,23 @@ $(window).load(function() {
 	});
 });
 
+$(window).resize(function() {
+	var vph = $(window).height();
+
+	$('section').each(function() {
+		$(this).css({'height':vph+'px'});
+	});
+});
+
 $(document).ready(function() {
+
+	// Section resize
+
+	var vph = $(window).height();
+
+	$('section').each(function() {
+		$(this).css({'height':vph+'px'});
+	});
 
 	// Skills section arrow animation
 
@@ -56,19 +72,19 @@ $(document).ready(function() {
 
 	// scrollTo plugin setup
 
-	var i=0;
+	var i=1;
 
 	$('#page_down').click(function() {
 		if (i === $('section').length)
 		{
-			i = 0;
+			i = 1;
 		}
 		$(document).scrollTo('section:eq('+i+')', 800, {easing:'easeInOutQuart'});
 		
 	});
 
 	$('.links').click(function() {
-		$(document).scrollTo('section:eq('+$(this).index()+')', 800, {easing:'easeInOutQuart'});
+		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {easing:'easeInOutQuart'});
 	});
 
 	$(window).scroll(function() {
@@ -81,35 +97,35 @@ $(document).ready(function() {
 
 		if (windowScrollTop < splashHeight)
 		{
-			i = 0;
+			i = 1;
 			$('#nav').css({'border-bottom':'none'}).slideUp(500);
 		}
 		else if (windowScrollTop >= splashHeight && windowScrollTop < splashHeight + aboutmeHeight)
 		{
-			i = 1;
-			$('.links').eq(i-1).addClass('selected');
-			$('.links').not($('.links').eq(i-1)).removeClass('selected');
+			i = 2;
+			$('.links').eq(i-2).addClass('selected');
+			$('.links').not($('.links').eq(i-2)).removeClass('selected');
 		}
 
 		else if (windowScrollTop >= splashHeight + aboutmeHeight && windowScrollTop < splashHeight + aboutmeHeight + skillsHeight)
 		{
-			i = 2;
-			$('.links').eq(i-1).addClass('selected');
-			$('.links').not($('.links').eq(i-1)).removeClass('selected');
+			i = 3;
+			$('.links').eq(i-2).addClass('selected');
+			$('.links').not($('.links').eq(i-2)).removeClass('selected');
 		}
 
 		else if (windowScrollTop >= splashHeight + aboutmeHeight + skillsHeight && windowScrollTop < splashHeight + aboutmeHeight + skillsHeight + experienceHeight)
 		{
-			i = 3;
-			$('.links').eq(i-1).addClass('selected');
-			$('.links').not($('.links').eq(i-1)).removeClass('selected');
+			i = 4;
+			$('.links').eq(i-2).addClass('selected');
+			$('.links').not($('.links').eq(i-2)).removeClass('selected');
 		}
 
 		else if (windowScrollTop >= splashHeight + aboutmeHeight + skillsHeight + experienceHeight)
 		{
-			i = 4;
-			$('.links').eq(i-1).addClass('selected');
-			$('.links').not($('.links').eq(i-1)).removeClass('selected');
+			i = 5;
+			$('.links').eq(i-2).addClass('selected');
+			$('.links').not($('.links').eq(i-2)).removeClass('selected');
 		}
 
 		if (windowScrollTop >= splashHeight && windowScrollTop <= $(document).height())
@@ -117,14 +133,15 @@ $(document).ready(function() {
 			$('#nav').css({'border-bottom':'2px solid rgba(169,169,169,1)'}).slideDown(500);
 		}
 
-		if (i === 4)
+		if (i === 5)
 		{
-			$('#page_down').css({'background-position-x':'-612px'});
+			$('#page_down').attr('id', 'page_up');
 		}
-		else 
+		else
 		{
-			$('#page_down').css({'background-position-x':'-660px'});
+			$('#page_up').attr('id', 'page_down');
 		}
+
 	});
 
 	// instagram

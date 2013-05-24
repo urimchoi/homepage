@@ -60,20 +60,28 @@ h4 {
 
 /* persistent pagedown arrow */
 
-#page_down {
+#page_down, #page_up {
 	position:fixed;
 	bottom:2%;
 	left:50%;
 	margin-left:-18px;
 	width:35px;
 	height:35px;
-	background: url('urim_icons.png') no-repeat top left transparent;
+	background: url('urim_icons.png') no-repeat transparent;
 	background-position: -660px -25px;
 	z-index:2;
 }
 
 #page_down:hover {
-	background-position-y: -64px;
+	background-position: -660px -64px;
+}
+
+#page_up {
+	background-position: -612px -25px; 
+}
+
+#page_up:hover {
+	background-position: -612px -64px;
 }
 
 /* Splash section */
@@ -92,7 +100,7 @@ h4 {
 	width:230px;
 	height:233px;
 	margin:-115px 0 0 -116px;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 	background-position: -25px -25px;
 }
 
@@ -130,7 +138,7 @@ h4 {
 	left:11px;
 	width:78px;
 	height:81px;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 	background-position: -278px -25px;
 }
 
@@ -159,6 +167,9 @@ h4 {
 
 #aboutme, #skills, #experience, #connect {
 	border:1px solid #e2e2e2;
+	position:relative;
+	width:1024px;
+	margin:auto;
 }
 
 #skills, #experience {
@@ -166,17 +177,12 @@ h4 {
 }
 
 #aboutme_container, #skills_container, #experience_container, #connect_container {
-	position:relative;
+	position:absolute;
 	top:50%;
-	width:1024px;
-	margin:auto;
+	width:100%;
 }
 
 /* about me */
-
-section {
-	height:100%; /* to remove with javascript */
-}
 
 #aboutme_container p {
 	width:854px;
@@ -234,7 +240,7 @@ section {
 }
 
 #publications li {
-	background:url('publication_logos.png') no-repeat top left transparent;
+	background:url('publication_logos.png') no-repeat transparent;
 }
 
 #publications li:nth-child(2) {background-position:-100px 0px;}
@@ -330,6 +336,8 @@ section {
 	-ms-transform-origin:0 100%; /* IE 9 */
 	-webkit-transform: rotate(-90deg); /* Safari and Chrome */
 	-webkit-transform-origin:0 100%; /* Safari and Chrome */
+	-moz-transform: rotate(-90deg); /* Firefox */
+	-moz-transform-origin:0 100%; /* Firefox */
 }
 
 #data {
@@ -359,6 +367,8 @@ section {
 	-ms-transform-origin:100% 0; /* IE 9 */
 	-webkit-transform: rotate(90deg); /* Safari and Chrome */
 	-webkit-transform-origin:100% 0; /* Safari and Chrome */
+	-moz-transform: rotate(90deg); /* Firefox */
+	-moz-transform-origin:100% 0; /* Firefox */
 }
 
 #ball {
@@ -366,7 +376,7 @@ section {
 	height:124px;
 	border-radius:62px;
 	margin: auto;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 	background-position:-25px -312px;
 }
 
@@ -380,7 +390,7 @@ section {
 	width:36px;
 	height:24px;
 	margin-bottom:10px;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 	background-position:-419px -25px;
 }
 
@@ -397,7 +407,7 @@ section {
 	width:24px;
 	height:36px;
 	margin-right:10px;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 	background-position:-486px -25px;
 }
 
@@ -469,7 +479,7 @@ section {
 	width:60px;
 	height:60px;
 	margin:0 5px;
-	background:url('urim_icons.png') no-repeat top left transparent;
+	background:url('urim_icons.png') no-repeat transparent;
 }
 
 #facebook {
@@ -496,6 +506,46 @@ section {
 	background-position: -578px -207px;
 }
 
+/* watermark */
+
+#watermark {
+	display:inline-block;
+	margin:100px 0;
+}
+
+#watermark_logo {
+	float:left;
+	width:55px;
+	height:55px;
+	margin-right:10px;
+	background:url('urim_icons.png') no-repeat transparent;
+	background-position:-165px -306px;
+}
+
+#watermark div {
+	float:left;
+	height:55px;
+	font-size:8pt;
+	line-height:10pt;
+	text-align:left;
+}
+
+#watermark div span {
+	display:block;
+	font-family:'Roboto Slab', serif;
+	margin-top:15px;
+}
+
+#watermark a {
+	display:inline;
+}
+
+#watermark a:hover {
+	text-decoration: underline;
+}
+
+
+/* debug */
 
 
 
