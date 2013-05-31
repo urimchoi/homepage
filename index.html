@@ -5,8 +5,8 @@
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script type="text/javascript" src="jquery.instagram.js"></script>
 	<script type="text/javascript" src="jquery.scrollTo-1.4.3.1-min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="urimchoi.tumblr.script.js"></script>
+	<link rel="stylesheet" type="text/css" href="urimchoi.tumblr.style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Raleway:100|Roboto:400,100,300' rel='stylesheet' type='text/css'>
 </head>
 
@@ -30,9 +30,11 @@
 	</div>
 
 	<section id="splash">
-		<div id="logo"></div>
-		<div id="splash_blurb">
-			<h3>I bring <em>well-rounded</em> perspectives and direction by blending <em>technical business & programming knowledge</em> with <em>people & project managing skills</em></h3>
+		<div id="splash_container">
+			<div id="logo"></div>
+			<div id="splash_blurb">
+				<h3>I bring <em>well-rounded</em> perspectives and direction by blending <em>technical business & programming knowledge</em> with <em>people & project managing skills</em></h3>
+			</div>
 		</div>
 	</section>
 	
@@ -40,98 +42,159 @@
 		<div id="aboutme_container" >
 			<h1>Let me introduce myself</h1>
 			<p>My name is Urim and I'm a certified CPA who is passionate about code and project management. Whether it be performing audit services for a fortune 500 company or building a website for a non-profit organization, I've been in the business of managing and executing projects. I bring a unique blend of technical aptitude, strong project management skills, and a drive to learn and improve.</p>
+			<div id="moreaboutme">
+				<div class="description">
+					+				
+				</div>
+			</div>
 			<div id="moreaboutme_container">
 				<div id="moreaboutme_content">
-					<div class="info">
-						<h2>Instagram</h2>
-						<div class="instagram">
+					<div class="slide">
+						<div class="info" style="width:100%;">
+							<blockquote>"The opposite of success isn't failure, it's doing nothing."</blockquote>
+						</div>
+						<div style="clear:both"></div>
+					</div>
+					<div class="slide">
+						<div class="info">
+							<h3>My latest Instagrams</h3>
+							<div class="instagram">
+							</div>
+							<div style="clear:both">
+							</div>
+						</div>
+						<div class="info">
+							<h3>Things I like to read</h3>
+							<ol id="publications">
+								<li><a href="http://www.theverge.com" target="_blank"></a></li>
+								<li><a href="http://www.polygon.com" target="_blank"></a></li>
+								<li><a href="http://www.hbr.org" target="_blank"></a></li>
+							</ol>
+
+						</div>
+						<div class="info" id="basicinfo">
+							<h3>Currently I'm in</h3>
+							<blockquote>New York, NY</blockquote>
+							
+						</div>
+						<div style="clear:both">
 						</div>
 					</div>
-					<div class="info">
-						<h2>Things I like to read</h2>
-						<ol id="publications">
-							<li><a href="http://www.theverge.com" target="_blank"></a></li>
-							<li><a href="http://www.polygon.com" target="_blank"></a></li>
-							<li><a href="http://www.hbr.org" target="_blank"></a></li>
-							<li><a href="http://www.inc.com" target="_blank"></a></li>
-							<li><a href="http://www.gq.com" target="_blank"></a></li>
-							<li><a href="http://www.digg.com" target="_blank"></a></li>
-						</ol>
-
-					</div>
-					<div class="info" id="basicinfo">
-						<h2>Currently I'm in</h2>
-						<div>New York, NY</div>
-
-						<h2>What I'm working on now</h2>
-						<div>
-							Python<br/>
-							Objective C<br/>
-							Programming Methodology<br/>
-							Concepting mobile apps
+					<div class="slide">
+						<div class="info" id="world_animation_container">
+							<div id="world_map_animation">
+								<div id="world_map"></div>
+								<div id="seoul" class="location">
+									<div class="tooltip_left">
+										<span>1987 - 1992</span><br/>
+										Seoul, Korea
+									</div>
+								</div>
+								<div id="seoultodallas" class="line"></div>
+								<div id="dallas" class="location">
+									<div class="tooltip_right">
+										<span>1992 - 2005</span><br/>
+										Dallas, TX<br/>
+										<span>2005 - 2010</span><br/>
+										Austin, TX
+									</div>
+								</div>
+								<div id="dallastochicago" class="line"></div>
+								<div id="chicago" class="location">
+									<div class="tooltip_right tooltip_arrow_bottom">
+										<span>2010 - 2012</span><br/>
+										Chicago, IL
+									</div>
+								</div>
+								<div id="chicagotonewyork" class="line"></div>
+								<div id="newyork" class="location">
+									<div class="tooltip_left">
+										<span>2013 - Present</span> <br/>
+										New York, NY
+									</div>
+								</div>
+							</div>
 						</div>
-
-						<h2>Coming soon</h2>
-						<div>
-							Responsive layout<br/>
-							Interactive experience section
+						<div style="clear:both">
 						</div>
-						
 					</div>
-					<div style="clear:both"></div>
 				</div>
-				<div id="moreaboutme">more about me</div>
+				<div id="slide_icon">
+					<div id="slide_icon_wrapper"></div>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<section id="skills">
 		<div id="skills_container">
+			<line></line>
 			<h1>Skills</h1>
-			<div id="projmgmt">
-				<h2>Project Management</h2>
+			<div id="projmgmt_container">
+				<div id="projmgmt">
+					<div class="description">
+					Project Management
+					</div>
+				</div>
 				<ul>
-					<li>Version control</li>
-					<li>Foster and maintain effective teams</li>
-					<li>Facilitate <br/>cross-functional communication</li>
-					<li>Communicate and implement feedback</li>
+					<li>
+						Teamworking
+					</li>
+					<li>
+						Cross-functional communication
+					</li>
+					<li>
+						Problem Solving
+					</li>
+					<li>
+						Technical Memo Writing
+					</li>
 				</ul>
 			</div>
 
-			<div id="webdev">
-				<h2>Web Development</h2>
+			<div id="webdev_container">
+				<div id="webdev">
+					<div class="description">
+					Web<br/> Development
+					</div>
+				</div>
 				<ul>
-					<li>HTML/CSS</li>
-					<li>Javascript</li>
-					<li>PHP</li>
-					<li>Photoshop</li>
+					<li>
+						HTML5 + CSS3
+					</li>
+					<li>
+						jQuery
+					</li>
+					<li>
+						PHP
+					</li>
+					<li>
+						Adobe CS
+					</li>
 				</ul>
 			</div>
 
-			<div id="data">
-				<h2>Data Analysis</h2>
+			<div id="data_container">
+				<div id="data">
+					<div class="description">
+					Business
+					</div>
+				</div>
 				<ul>
-					<li>Excel</li>
-					<li>Powerpoint</li>
-					<li>Data presentation</li>
+					<li>
+						Accounting 
+					</li>
+					<li>
+						Finance 
+					</li>
+					<li>
+						Data Analysis
+					</li>
+					<li>
+						Data Presentation
+					</li>
 				</ul>
 			</div>
-			<div id="arrow_down">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<div id="arrow_left">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<div id="arrow_right">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<div id="ball"></div>
 
 		</div>
 	</section>

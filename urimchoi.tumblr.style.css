@@ -71,7 +71,7 @@ span {
 	margin-left:-18px;
 	width:35px;
 	height:35px;
-	background: url('urim_icons.png') no-repeat transparent;
+	background: url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
 	background-position: -660px -25px;
 	z-index:2;
 }
@@ -94,15 +94,7 @@ span {
 	position:relative;
 	width:100%;
 	height:100%;
-	background: #203d51; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #2f3151 0%, #203d51 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#2f3151), color-stop(100%,#203d51)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* IE10+ */
-	background: linear-gradient(135deg, #2f3151 0%,#203d51 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#452152', endColorstr='#203d51',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+	background: #203d51;
 }
 
 #splash_container {
@@ -116,7 +108,7 @@ span {
 	width:230px;
 	height:233px;
 	margin:auto;
-	background:url('urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
 	background-position: -25px -25px;
 }
 
@@ -152,7 +144,7 @@ span {
 	left:11px;
 	width:78px;
 	height:81px;
-	background:url('urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
 	background-position: -278px -25px;
 }
 
@@ -221,7 +213,7 @@ section {
 #moreaboutme {
 	position:relative;
 	background-color:#fff;
-	color:#365062;
+	color:#203D51;
 	width:50px;
 	height:50px;
 	margin:auto;
@@ -238,7 +230,7 @@ section {
 }
 
 #moreaboutme:hover {
-	background-color:#365062;
+	background-color:#203D51;
 	color:#e2e2e2;
 }
 
@@ -295,7 +287,6 @@ blockquote {
 .info {
 	float:left;
 	width:33.33%;
-	display:none;
 	padding:100px 0;
 }
 
@@ -367,13 +358,17 @@ blockquote {
 	width:1516px;
 	height:758px;
 	margin:-150px 0 0 0;
-	-webkit-transform-origin:0% 50%; /* Safari and Chrome */
+	transform-origin:0 50%;
+	-ms-transform-origin:0 50%; /* IE 9 */
+	-webkit-transform-origin:0 50%; /* Safari and Chrome */
+	-moz-transform-origin:0 50%; /* Firefox */
+	-o-transform-origin:0 50%; /* Opera */
 }
 
 #world_map {
 	width:100%;
 	height:100%;
-	background:url('world_map.png') no-repeat 50% 50% transparent;
+	background:url('http://static.tumblr.com/wzpptcw/xCGmnn76r/world_map.png') no-repeat 50% 50% transparent;
 	background-size:contain;
 }
 
@@ -460,6 +455,14 @@ blockquote {
 	width:905px;
 	-webkit-transform: rotate(-3.1deg); /* Safari and Chrome */
 	-webkit-transform-origin:0 50%; /* Safari and Chrome */
+	-o-transform: rotate(-3.1deg); /* Opera */
+	-o-transform-origin:0 50%; /* Opera */
+	-ms-transform: rotate(-3.1deg); /* IE9 */
+	-ms-transform-origin:0 50%; /* IE9 */
+	-moz-transform: rotate(-3.1deg); /* Firefox */
+	-moz-transform-origin:0 50%; /* Firefox */
+	transform: rotate(-3.1deg); 
+	transform-origin:0 50%; 
 }
 
 #dallas {
@@ -473,6 +476,14 @@ blockquote {
 	width:60px;
 	-webkit-transform: rotate(-60.5deg); /* Safari and Chrome */
 	-webkit-transform-origin:0 50%; /* Safari and Chrome */
+	-o-transform: rotate(-60.5deg); /* Opera */
+	-o-transform-origin:0 50%; /* Opera */
+	-ms-transform: rotate(-60.5deg); /* IE9 */
+	-ms-transform-origin:0 50%; /* IE9 */
+	-moz-transform: rotate(-60.5deg); /* Firefox */
+	-moz-transform-origin:0 50%; /* Firefox */
+	transform: rotate(-60.5deg); 
+	transform-origin:0 50%; 
 }
 
 #chicago {
@@ -486,6 +497,14 @@ blockquote {
 	width:70px;
 	-webkit-transform: rotate(6.5deg); /* Safari and Chrome */
 	-webkit-transform-origin:0 50%; /* Safari and Chrome */
+	-o-transform: rotate(-6.5deg); /* Opera */
+	-o-transform-origin:0 50%; /* Opera */
+	-ms-transform: rotate(-6.5deg); /* IE9 */
+	-ms-transform-origin:0 50%; /* IE9 */
+	-moz-transform: rotate(-6.5deg); /* Firefox */
+	-moz-transform-origin:0 50%; /* Firefox */
+	transform: rotate(-6.5deg); 
+	transform-origin:0 50%; 
 }
 
 #newyork {
@@ -496,15 +515,7 @@ blockquote {
 /* skills */
 
 #skills {
-	background: #203d51; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #2f3151 0%, #203d51 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#2f3151), color-stop(100%,#203d51)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(-45deg, #2f3151 0%,#203d51 100%); /* IE10+ */
-	background: linear-gradient(135deg, #2f3151 0%,#203d51 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#452152', endColorstr='#203d51',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+	background: #203d51;
 }
 
 #skills_container {
@@ -601,7 +612,7 @@ blockquote {
 	width:60px;
 	height:60px;
 	margin:0 5px;
-	background:url('urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
 }
 
 #facebook {
@@ -640,7 +651,7 @@ blockquote {
 	width:55px;
 	height:55px;
 	margin-right:10px;
-	background:url('urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
 	background-position:-165px -306px;
 }
 
