@@ -10,15 +10,15 @@ var moreaboutme_contentHeight = null,
 	i = 1,
 	setScale = 1516,
 	scale = null,
-	slideIconIndex = null;
+	slideIconIndex = null,
+	moreAboutMeShown = false;
 
 
 
 $(window).load(function() {
 
 	// -- set object variables
-	var $containers = $('#splash_container, #aboutme_container, #skills_container, #experience_container, #connect_container'),
-		$projectDescription = $('.description');
+	var $containers = $('#splash_container, #aboutme_container, #skills_container, #experience_container, #connect_container');
 	
 	// Check container size and alignment
 	// -- vertically align the content within each section when the page loads
@@ -44,7 +44,7 @@ $(window).load(function() {
 	});
 
 	// vertical and horizontal alignment of the experience section items
-	$projectDescription.each(function() {
+	$('.description').each(function() {
 		$(this).css({'margin-top':$(this).height() / -2,'margin-left':$(this).width() / -2});
 	});
 	
@@ -74,21 +74,11 @@ $(window).resize(function() {
 	// setting the height of the moreaboutme section
 
 	// -- set the var once the page loads
-	moreaboutme_contentHeight = $('.slide').eq(1).height();
+	moreaboutme_contentHeight = $('.slide').eq(0).height();
 
 	// -- set the container to the moreaboutme content height
 	$('#moreaboutme_content').css({'height':moreaboutme_contentHeight+'px'});
 
-	// -- realign the moreaboutme slides
-	$('#moreaboutme_content').css({'width':vpw * $('.slide').length, 'left':-(vpw * slideIconIndex)});
-
-	$('.slide').each(function() {
-			$(this).css({'width':vpw});
-
-	// rescale timeline map
-	$('#world_map_animation').css({'-webkit-transform':'scale('+(vpw / setScale)+','+(vpw / setScale)+')'});
-
-	});
 });
 
 
@@ -96,41 +86,7 @@ $(document).ready(function() {
 
 	// align the moreaboutme slides
 	// -- sets the moreaboutme_content width to the combined width of all slides
-	$('#moreaboutme_content').css({'width':vpw * $('.slide').length});
-
-	// sets the formatting for each slide within the moreaboutme section
-	$('.slide').each(function() {
-
-	// -- each slide's width is changed to fit the screen from side to side
-		$(this).css({'width':vpw});
-
-	// -- create slide icons for each slide created
-		$('#slide_icon_wrapper').append('<div class="ball"></div>');
-	});
-
-	// switch slides based on the slide icon clicked
-	$('.ball').click(function() {
-		slideIconIndex = $(this).index();
-		slideLeftPosition = $('.slide').eq(slideIconIndex).position().left;
-
-		// if you click on a slide icon other than the first one then...
-		if (slideLeftPosition > 0) {
-
-		// -- shift the moreaboutme_content box to the left by the product of the screen width and the icon's index number
-			$('#moreaboutme_content').animate({left:-(vpw * slideIconIndex)+'px'}, 500);
-		} 
-		// if you click on the first slide icon then...
-		else if (slideLeftPosition === 0) {
-
-		// -- shift the moreaboutme_content box back to its initial state
-			$('#moreaboutme_content').animate({left:'0px'}, 500);
-		} 
-
-	});
-
-	// rescale timeline map
-	$('#world_map_animation').css({'-webkit-transform':'scale('+(vpw / setScale)+','+(vpw / setScale)+')'});
-
+	$('#moreaboutme_container').css({'left':vpw});
 
 	// connect button animation
 
@@ -189,60 +145,32 @@ $(document).ready(function() {
 		clientId: clientId
 	});
 
-	// more about me button effect
-
-	var x = 1;
-
 
 	// -- when you click on the more about me button...
 	$('#moreaboutme').click(function() {
 
-	// -- -- if in the initial state
-		if (x === 1)
-		{
-
 	// -- -- -- the moreaboutme_content element will slide down
-			$('#moreaboutme_content').slideDown(500, function() {	
+		$('#moreaboutme_container').animate({'left':'0'}, 500, function() {
 
-	// -- -- -- after the slide down is complete
+	// -- -- -- after the slide down is complete, fade in back button
+			$('#lessaboutme').animate({'opacity':1},500);
+		});
 
-	// -- -- -- -- change the + to a -
-				$('#moreaboutme .description').html('&#8212;');
+		moreAboutMeShown = true;
 
-	// -- -- -- -- set the var once the page loads
-				moreaboutme_contentHeight = $('.slide').eq(0).height();
+	});
 
-	// -- -- -- -- set the moreaboutme_content height to the to match the height of the first slide element
-				$('#moreaboutme_content').css({'height':moreaboutme_contentHeight+'px'});
-
-	// -- -- -- -- for the section element aboutme, set the min height to match the height of acoutme_container
-		  		$('#aboutme_container').parent().animate({'min-height':$('#aboutme_container').height() + 150}, 500);
-	// -- -- -- -- for aboutme_container, vertically align the element in the middle using negative margins
-				$('#aboutme_container').animate({'margin-top':$('#aboutme_container').height() / -2}, 500);
-			});
-
-	// -- -- -- increase the value of x
-			x++;
-		}
-
-
-	// -- -- if in the on state
-		else if (x === 2)
-		{
+	// -- when you click on the less about me button...
+	$('#lessaboutme').click(function() {
 	// -- -- -- the moreaboutme_content element will slide up
-			$('#moreaboutme_content').slideUp(500, function() {
+		$('#moreaboutme_container').animate({'left':vpw}, 500, function() {
 
-	// -- -- -- -- change the - to a +
-				$('#moreaboutme .description').html('+');
-	// -- -- -- -- for the section element aboutme, set the min height to match the height of acoutme_container
-		  		$('#aboutme_container').parent().animate({'min-height':$('#aboutme_container').height() + 150}, 500);
-	// -- -- -- -- for aboutme_container, vertically align the element in the middle using negative margins
-				$('#aboutme_container').animate({'margin-top':$('#aboutme_container').height() / -2}, 500);
-			});
-	// -- -- -- decrease the value of x back to 1
-			x--;
-		}
+	// -- -- -- after the slide down is complete, fade in back button
+			$('#lessaboutme').animate({'opacity':0},500);
+				
+		});
 
+		moreAboutMeShown = false;
 	});
 
 });
@@ -269,6 +197,9 @@ $(window).scroll(function() {
 		i = 2;
 		$('.links').eq(i-2).addClass('selected');
 		$('.links').not($('.links').eq(i-2)).removeClass('selected');
+		if (moreAboutMeShown === true) {
+			$('#lessaboutme').stop().css({'opacity':1});
+		}
 	}
 
 	// if the top scroll position is within the second section
@@ -277,6 +208,9 @@ $(window).scroll(function() {
 		i = 3;
 		$('.links').eq(i-2).addClass('selected');
 		$('.links').not($('.links').eq(i-2)).removeClass('selected');
+		if (moreAboutMeShown === true) {
+			$('#lessaboutme').stop().animate({'opacity':0},200);
+		}
 	}
 
 	// if the top scroll position is within the third section
