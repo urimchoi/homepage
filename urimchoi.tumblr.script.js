@@ -47,19 +47,6 @@ $(window).load(function() {
 	$('.description').each(function() {
 		$(this).css({'margin-top':$(this).height() / -2,'margin-left':$(this).width() / -2});
 	});
-	
-	// mouseover effects for instagram photos - must be done after load because .instagram-placeholders will not exist at $.ready
-	$('.instagram-placeholder').mouseenter(function() {
-
-	// -- for all items with in this class that isn't the one you moused over, reduce their opacity to 60%
-		$('.instagram-placeholder').not($(this)).stop().animate({'opacity':'0.6'}, 100);
-	});
-
-	$('.instagram-placeholder').mouseleave(function() {
-
-	// -- when the mouse leaves the element, return all other elements within the class to 100% opacity
-		$('.instagram-placeholder').stop().animate({'opacity':'1'}, 500);
-	});
 });
 
 $(window).resize(function() {
@@ -86,7 +73,7 @@ $(document).ready(function() {
 
 	// align the moreaboutme slides
 	// -- sets the moreaboutme_content width to the combined width of all slides
-	$('#moreaboutme_container').css({'left':vpw});
+	$('#moreaboutme_container').css({'left':'-300px'});
 
 	// connect button animation
 
@@ -135,42 +122,66 @@ $(document).ready(function() {
 		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {easing:'easeInOutQuart'});
 	});
 
-	// instagram jQuery plugin
-
-	var clientId = '535977850dd04208a6a1c0bc2a2e37ec';
-	$(".instagram").instagram({
-		hash: 'urimchoi',
-		image_size: 'high_resolution',
-		show: 3,
-		clientId: clientId
-	});
-
 
 	// -- when you click on the more about me button...
 	$('#moreaboutme').click(function() {
 
-	// -- -- -- the moreaboutme_content element will slide down
+	// -- -- -- the moreaboutme_content element will slide right
 		$('#moreaboutme_container').animate({'left':'0'}, 500, function() {
 
-	// -- -- -- after the slide down is complete, fade in back button
+	// -- -- -- after the slide right is complete, fade in back button
 			$('#lessaboutme').animate({'opacity':1},500);
+
+			moreAboutMeShown = true;
 		});
 
-		moreAboutMeShown = true;
+
+		$('section').animate({'left':'300px'}, 500);
 
 	});
 
-	// -- when you click on the less about me button...
-	$('#lessaboutme').click(function() {
-	// -- -- -- the moreaboutme_content element will slide up
-		$('#moreaboutme_container').animate({'left':vpw}, 500, function() {
+	$('#logo_small').click(function() {
+		if (moreAboutMeShown === false) {
+	// -- -- -- the moreaboutme_content element will slide left
+			$('#moreaboutme_container').animate({'left':'0'}, 500, function() {
 
-	// -- -- -- after the slide down is complete, fade in back button
-			$('#lessaboutme').animate({'opacity':0},500);
+	// -- -- -- after the slide left is complete, fade in back button
+				$('#lessaboutme').animate({'opacity':1},500);
+
+				moreAboutMeShown = true;	
 				
-		});
+			});
+			$('section').animate({'left':'300px'}, 500);		
+		}
 
-		moreAboutMeShown = false;
+		else if (moreAboutMeShown === true) {
+	// -- -- -- the moreaboutme_content element will slide left
+			$('#moreaboutme_container').animate({'left':'-300px'}, 500, function() {
+
+	// -- -- -- after the slide left is complete, fade in back button
+				$('#lessaboutme').animate({'opacity':0},500);
+
+				moreAboutMeShown = false;	
+				
+			});
+			$('section').animate({'left':'0px'}, 500);		
+		}
+	});
+
+	// -- when you click on the less about me button...
+	$('#lessaboutme,section').click(function() {
+		if (moreAboutMeShown === true) {
+	// -- -- -- the moreaboutme_content element will slide left
+			$('#moreaboutme_container').animate({'left':'-300px'}, 500, function() {
+
+	// -- -- -- after the slide left is complete, fade in back button
+				$('#lessaboutme').animate({'opacity':0},500);
+
+				moreAboutMeShown = false;
+				
+			});
+			$('section').animate({'left':'0px'}, 500);
+		}
 	});
 
 });

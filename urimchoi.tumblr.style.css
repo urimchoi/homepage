@@ -12,6 +12,10 @@ body {
 	overflow-x:hidden;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 ul {
 	list-style-type: none;
 	-webkit-margin-before: 0px;
@@ -227,12 +231,16 @@ section {
 }
 
 #moreaboutme_container {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
+	position:fixed;
+	width:300px;
 	height:100%;
-	background:#fff;
+	background:#474747;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+#moreaboutme_container::-webkit-scrollbar {
+	display:none;
 }
 
 #moreaboutme {
@@ -247,17 +255,14 @@ section {
 }
 
 #lessaboutme {
-	position:fixed;
-	top:80px;
-	left:40px;
+	position:relative;
 	background-color:#fff;
 	color:#203D51;
 	width:50px;
 	height:50px;
+	margin:70px 0 0 20px;
 	border-radius:25px;
-	border:1px solid #e2e2e2;
 	opacity:0;
-	z-index:1;
 }
 
 #moreaboutme:hover, #lessaboutme:hover {
@@ -272,8 +277,6 @@ section {
 #moreaboutme_content {
 	display:inline-block;
 	position:relative;
-	overflow-x:hidden;
-	overflow-y:scroll;
 	height:100%;
 	width:100%;
 }
@@ -281,7 +284,7 @@ section {
 	position:relative;
 	margin:50px auto;
 	width:100%;
-	max-width:1280px;
+	max-width:300px;
 }
 
 .slide p {
@@ -318,34 +321,27 @@ section {
 	font-style: italic;
 }
 
-.info {
-	float:left;
-	width:33%;
-	padding:20px 0;
-}
-
-.info h3 {
-	color:#203D51;
-	margin-bottom:20px;
-}
-
-.quote, .article {
+.quote, .article, .photo {
 	display:inline-block;
-}
-
-.quote li {
-	display:block;
 	padding:20px;
 }
 
-.quote li h5 {
-	text-align:center;
-	font-size:14pt;
+.divider {
+	width:150px;
+	height:1px;
+	background:#7d7d7d;
+	margin:auto;
 }
 
-.article {
-	height:600px;
-	width:90%;
+.quote h5, .article h5 {
+	text-align:center;
+	font-size:14pt;
+	color:#e9e9e9;
+}
+
+.photo div {
+	border-radius:3px;
+	border:1px solid #7d7d7d;
 }
 
 .article li {
@@ -355,118 +351,46 @@ section {
 	margin-top:10px;
 	background:#e2e2e2;
 }
-
-.article li:first-child {
-	margin-top:0px;
-} 
-
-#basicinfo div {
-	margin-bottom:40px;
+        
+.article h1, .quote h1, .photo h1 {
+    display:block;
+    background:transparent;
+    text-align: center;
+    font-size: 14pt;
+    color: #e9e9e9;
+    margin:auto;
 }
 
-/* ----- Instagram */
-
-.instagram-placeholder {
-	display:inline-block;
-	background:#e2e2e2;
-	width:90%;
-	margin:5px 5px -5px 5px;
+.article a {
+    font-size:inherit;
+    font-weight:inherit;
+    line-height:inherit;
 }
 
-.instagram-image {
-	width:50% !important;
+blockquote {
+    text-align:left;
 }
 
-/* ----- World Map Animation */
-
-#world_map_animation {
-	position:relative;
-	width:100%;
+.photo div {
+    background:#7d7d7d;
+    color:#474747;
 }
 
-#timeline {
-	display:inline-block;
-	width:6px;
-	height:550px;
-	background:#e9e9e9;
-	border-radius:3px;
+.photo div p {
+    text-align:left;
+    margin:0px;
 }
 
-.location {
-	position:absolute;
-	height:20px;
-	width:20px;
-	top:0;
-	left:50%;
-	margin-left:-10px;
-	border-radius:10px;
-	background:#e2e2e2;
+.photo div p a {
+    display:inline;
 }
 
-.tooltip_right {
-	position:absolute;
-	width:100px;
-	top:-10px;
-	left:40px;
-	padding:10px;
-	background:#203D51;
-	color:#fff;
-	border-radius:3px;
-	border:1px solid #203D51;
-	text-align:center;
+.caption {
+    padding:20px;
 }
 
-.tooltip_right:before {
-	position:absolute;
-	content:"";
-	display:block;
-	height:0px;
-	width:0px;
-	border:10px solid transparent;
-	border-right:10px solid #203D51;
-	left:-20px;
-	top:10px;
-}
-
-.tooltip_left {
-	position:absolute;
-	width:100px;
-	top:-10px;
-	right:40px;
-	padding:10px;
-	background:#203D51;
-	color:#fff;
-	border-radius:3px;
-	border:1px solid #203D51;
-	text-align:center;
-}
-
-.tooltip_left:after {
-	position:absolute;
-	content:"";
-	display:block;
-	height:0px;
-	width:0px;
-	border:10px solid transparent;
-	border-left:10px solid #203D51;
-	right:-20px;
-	top:10px;
-}
-
-#dallas {
-	top:100px;
-}
-
-#austin {
-	top:360px;
-}
-
-#chicago {
-	top:420px;
-}
-
-#newyork {
-	top:500px;
+.link_og_blockquote {
+    font-size:10pt;
 }
 
 /* skills */
