@@ -15,6 +15,29 @@ var moreaboutme_contentHeight = null,
 
 
 
+sidePanelOpen = function() {
+
+// -- -- -- the moreaboutme_content element will slide right
+	$('#moreaboutme_container').stop().animate({'left':'0'}, 300, function() {
+		moreAboutMeShown = true;
+	});
+
+
+	$('section').stop().animate({'left':'33%'}, 300);
+
+}
+
+sidePanelClose = function() {
+
+// -- -- -- the moreaboutme_content element will slide left
+		$('#moreaboutme_container').stop().animate({'left':'-33%'}, 300, function() {
+			moreAboutMeShown = false;	
+		});
+		$('section').stop().animate({'left':'0px'}, 300);	
+
+}
+
+
 $(window).load(function() {
 
 	// -- set object variables
@@ -73,7 +96,7 @@ $(document).ready(function() {
 
 	// align the moreaboutme slides
 	// -- sets the moreaboutme_content width to the combined width of all slides
-	$('#moreaboutme_container').css({'left':'-300px'});
+	$('#moreaboutme_container').css({'left':'-33%'});
 
 	// connect button animation
 
@@ -91,13 +114,13 @@ $(document).ready(function() {
 	// about me items hover effect
 
 	// -- effect when mouse is over icon
-	$('#publications li').mouseenter(function() {
-		$('#publications li').not($(this)).stop().animate({'opacity':'0.6'}, 100);
+	$('.links').mouseenter(function() {
+		$(this).children().stop().fadeIn(200);
 	});
 
 	// -- effect when mouse leaves the icon
-	$('#publications li').mouseleave(function() {
-		$('#publications li').stop().animate({'opacity':'1'}, 500);
+	$('.links').mouseleave(function() {
+		$(this).children().stop().fadeOut(200);
 	});
 
 	// scrollTo plugin setup
@@ -112,75 +135,37 @@ $(document).ready(function() {
 			i = 1;
 		}
 	// -- take the page back to the first slide
-		$(document).scrollTo('section:eq('+i+')', 800, {easing:'easeInOutQuart'});
+		$(document).scrollTo('section:eq('+i+')', 800, {axis:'y', easing:'easeInOutQuart'});
 		
 	});
 
 	// when you click on the link elements within the top nav...
 	$('.links').click(function() {
 	// -- scroll the the slide that has the same index value as the element you clicked
-		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {easing:'easeInOutQuart'});
+		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {axis:'y', easing:'easeInOutQuart'});
 	});
-
 
 	// -- when you click on the more about me button...
 	$('#moreaboutme').click(function() {
 
-	// -- -- -- the moreaboutme_content element will slide right
-		$('#moreaboutme_container').animate({'left':'0'}, 500, function() {
-
-	// -- -- -- after the slide right is complete, fade in back button
-			$('#lessaboutme').animate({'opacity':1},500);
-
-			moreAboutMeShown = true;
-		});
-
-
-		$('section').animate({'left':'300px'}, 500);
+		sidePanelOpen();
 
 	});
 
 	$('#logo_small').click(function() {
 		if (moreAboutMeShown === false) {
-	// -- -- -- the moreaboutme_content element will slide left
-			$('#moreaboutme_container').animate({'left':'0'}, 500, function() {
-
-	// -- -- -- after the slide left is complete, fade in back button
-				$('#lessaboutme').animate({'opacity':1},500);
-
-				moreAboutMeShown = true;	
-				
-			});
-			$('section').animate({'left':'300px'}, 500);		
+			sidePanelOpen();		
 		}
 
 		else if (moreAboutMeShown === true) {
-	// -- -- -- the moreaboutme_content element will slide left
-			$('#moreaboutme_container').animate({'left':'-300px'}, 500, function() {
-
-	// -- -- -- after the slide left is complete, fade in back button
-				$('#lessaboutme').animate({'opacity':0},500);
-
-				moreAboutMeShown = false;	
-				
-			});
-			$('section').animate({'left':'0px'}, 500);		
+			sidePanelClose();	
 		}
 	});
 
 	// -- when you click on the less about me button...
 	$('#lessaboutme,section').click(function() {
 		if (moreAboutMeShown === true) {
-	// -- -- -- the moreaboutme_content element will slide left
-			$('#moreaboutme_container').animate({'left':'-300px'}, 500, function() {
-
-	// -- -- -- after the slide left is complete, fade in back button
-				$('#lessaboutme').animate({'opacity':0},500);
-
-				moreAboutMeShown = false;
-				
-			});
-			$('section').animate({'left':'0px'}, 500);
+			sidePanelClose();
 		}
 	});
 
@@ -199,7 +184,7 @@ $(window).scroll(function() {
 	if (windowScrollTop < splashHeight)
 	{
 		i = 1;
-		$('#nav').slideUp(500);
+		sidePanelClose();
 	}
 
 	// if the top scroll position is within the first section
@@ -216,6 +201,7 @@ $(window).scroll(function() {
 		i = 3;
 		$('.links').eq(i-2).addClass('selected');
 		$('.links').not($('.links').eq(i-2)).removeClass('selected');
+		sidePanelClose();
 		$('#projmgmt').animate({'opacity':1},500, function() {
 			$('#projmgmt_container li').each(function() {
 				$(this).animate({'opacity':1},500 * $(this).index());

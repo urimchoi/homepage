@@ -159,50 +159,67 @@ p {
 /* navigation bar */
 
 #nav {
-	background:#203D51;
-	width:100%;
-	height:50px;
+	width:40px;
+	height:100%;
 	position:fixed;
 	top:0px;
-	left:0px;
+	right:0px;
 	z-index:2;
-	display:none;
 	border-bottom:none;
 }
 
 #nav_container {
 	position:relative;
 	width:100%;
+	height:100%;
 	margin:auto;
-}
-
-#logo_small {
-	position:absolute;
-	top:11px;
-	left:11px;
-	width:30px;
-	height:30px;
-	background:#fff;
-	border-radius:3px;
 }
 
 #nav_links {
-	width:50%;
-	height:50px;
-	padding:12px 0 0 0;
-	margin:auto;
+	position:absolute;
+	top:50%;
+	left:10px;
+	margin-top:-95px;
 	text-align: center;
 }
 
 .links {
+	position:relative;
 	font-family: 'Roboto Slab', serif;
-	display:inline-block;
-	color:#a18c75;
+	display:block;
+	width:15px;
+	height:15px;
+	margin:10px auto;
+	border-radius:25px;
+	background:#e2e2e2;
 	cursor:pointer;
 }
 
+.tooltip {
+	content:"About Me";
+	position:absolute;
+	display:none;
+	min-width:100px;
+	top:-10px;
+	right:30px;
+	padding:5px 10px;
+	border-radius:3px;
+	background:#e2e2e2;
+}
+
+.tooltip:after {
+	content:"";
+	position:absolute;
+	top:7px;
+	right:-20px;
+	border-left:10px solid #e2e2e2;
+	border-top:10px solid transparent;
+	border-right:10px solid transparent;
+	border-bottom:10px solid transparent;
+}
+
 .selected {
-	text-decoration:underline;
+	background:#a18c75;
 }
 
 
@@ -238,15 +255,11 @@ section {
 
 #moreaboutme_container {
 	position:fixed;
-	width:300px;
+	width:33%;
 	height:100%;
 	background:#474747;
 	overflow-x:hidden;
 	overflow-y:scroll;
-}
-
-#moreaboutme_container::-webkit-scrollbar {
-	display:none;
 }
 
 #moreaboutme {
@@ -266,9 +279,8 @@ section {
 	color:#203D51;
 	width:50px;
 	height:50px;
-	margin:70px 0 0 20px;
+	margin:30px 0 0 20px;
 	border-radius:25px;
-	opacity:0;
 }
 
 #moreaboutme:hover, #lessaboutme:hover {
@@ -281,43 +293,22 @@ section {
 }
 
 #moreaboutme_content {
-	display:inline-block;
+	display:block;
 	position:relative;
 	height:100%;
 	width:100%;
 }
 .slide {
 	position:relative;
-	margin:50px auto;
-	width:100%;
-	max-width:300px;
+	margin:20px auto;
+	width:80%;
+	min-width:250px;
 }
 
 .slide p {
 	text-align:left;
 	font-size:10pt;
 	margin-bottom:20px;
-}
-
-#slide_icon {
-	position:absolute;
-	width:100%;
-	bottom:0px;
-}
-
-#slide_icon_wrapper {
-	display:inline;
-	margin:auto;
-}
-
-.ball {
-	display:inline-block;
-	background:#203d51;
-	width:10px;
-	height:10px;
-	border-radius:5px;
-	margin:2px;
-	z-index: 1;
 }
 
 .source {
@@ -467,13 +458,38 @@ blockquote {
 	height:150px;
 	margin:auto;
 	margin-bottom:30px;
-	background:#f4f4f4;
+	border:1px solid #e2e2e2;
+	overflow:hidden;
+	background:url('http://static.tumblr.com/wzpptcw/DQsmnqkpq/experience_background.png') no-repeat;
+}
+
+#acct1 {background-position:0px 0px;}
+#acct2 {background-position:0px -150px;}
+#acct3 {background-position:0px -300px;}
+#tft {background-position:-300px 0px;}
+#bdc {background-position:-300px -150px;}
+#jbo {background-position:-300px -300px;}
+#github {background-position:-600px 0px;}
+#website {background-position:-600px -150px;}
+#mobile {background-position:-600px -300px;}
+
+.project_container {
+	position:absolute;
+	width:300px;
+	height:150px;
+	background:#fff;
+	opacity:0;
+}
+
+.project_container:hover {
+	opacity:1;
 }
 
 .description {
 	position:absolute;
 	top:50%;
 	left:50%;
+	margin-top:-75px;
 	width:100%;
 }
 
