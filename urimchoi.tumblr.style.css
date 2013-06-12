@@ -109,7 +109,7 @@ p {
 	margin-left:-18px;
 	width:35px;
 	height:35px;
-	background: url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
+	background: url('http://static.tumblr.com/wzpptcw/XGAmo9mfq/urim_icons.png') no-repeat transparent;
 	background-position: -660px -25px;
 	z-index:2;
 }
@@ -146,7 +146,7 @@ p {
 	width:230px;
 	height:233px;
 	margin:auto;
-	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/XGAmo9mfq/urim_icons.png') no-repeat transparent;
 	background-position: -25px -25px;
 }
 
@@ -401,25 +401,40 @@ blockquote {
 	max-width:1280px;
 }
 
-#projmgmt_container, #webdev_container, #data_container {
+#projmgmt_container, #webdev_container, #business_container {
 	display:inline-block;
 	margin-top:50px;
 	margin-left:-3px;
 	width:33.33%;
 }
 
-#projmgmt, #webdev, #data {
+#projmgmt, #webdev, #business {
 	position:relative;
 	border:#203d51 10px solid;
-	height:150px;
-	width:150px;
+	height:170px;
+	width:170px;
 	color:#203d51;
 	margin:auto;
 	border-radius:85px;
 	opacity:0;
+	background:url('http://static.tumblr.com/wzpptcw/XGAmo9mfq/urim_icons.png') no-repeat top left transparent;
 }
 
-#projmgmt_container li, #webdev_container li, #data_container li {
+#projmgmt:hover, #webdev:hover, #business:hover {
+	background:none;
+}
+
+#projmgmt {
+	background-position:-278px -300px;
+}
+#webdev {
+	background-position:-428px -300px;
+}
+#business {
+	background-position:-578px -300px;
+}
+
+#projmgmt_container li, #webdev_container li, #business_container li {
 	display:inline-block;
 	padding:25px 0;
 	width:70%;
@@ -429,7 +444,7 @@ blockquote {
 	opacity:0;
 }
 
-#projmgmt_container li:first-child, #webdev_container li:first-child, #data_container li:first-child {
+#projmgmt_container li:first-child, #webdev_container li:first-child, #business_container li:first-child {
 	padding-top:50px;
 	border:0px;
 }
@@ -478,11 +493,16 @@ blockquote {
 	width:300px;
 	height:150px;
 	background:#fff;
-	opacity:0;
+	opacity:1;
+
+	transition:500ms;
+	-webkit-transition:500ms;
+	-moz-transition:500ms;
+	-o-transition:500ms;
 }
 
 .project_container:hover {
-	opacity:1;
+	opacity:0;
 }
 
 .description {
@@ -519,7 +539,7 @@ blockquote {
 	width:60px;
 	height:60px;
 	margin:0 5px;
-	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/XGAmo9mfq/urim_icons.png') no-repeat transparent;
 }
 
 #facebook {
@@ -558,7 +578,7 @@ blockquote {
 	width:55px;
 	height:55px;
 	margin-right:10px;
-	background:url('http://static.tumblr.com/wzpptcw/pHPmnn3zb/urim_icons.png') no-repeat transparent;
+	background:url('http://static.tumblr.com/wzpptcw/XGAmo9mfq/urim_icons.png') no-repeat transparent;
 	background-position:-165px -306px;
 }
 

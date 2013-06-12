@@ -37,6 +37,84 @@ sidePanelClose = function() {
 
 }
 
+$(document).ready(function() {	
+
+	$('html, body').scrollTop(0);
+
+	// align the moreaboutme slides
+	// -- sets the moreaboutme_content width to the combined width of all slides
+	$('#moreaboutme_container').css({'left':'-33%'});
+
+	// connect button animation
+
+	// -- effect when mouse is over icon
+	$('.connect_icon li').mouseenter(function() {
+		$('.connect_icon li').not($(this)).stop().animate({'opacity':'0.6'}, 100);
+	});
+
+	// -- effect when mouse leaves the icon
+	$('.connect_icon li').mouseleave(function() {
+		$('.connect_icon li').stop().animate({'opacity':'1'}, 500);
+	});
+
+
+	// about me items hover effect
+
+	// -- effect when mouse is over icon
+	$('.links').mouseenter(function() {
+		$(this).children().stop().fadeIn(200);
+	});
+
+	// -- effect when mouse leaves the icon
+	$('.links').mouseleave(function() {
+		$(this).children().stop().fadeOut(200);
+	});
+
+	// scrollTo plugin setup
+
+	// if you click on the page_down element
+	$('#page_down').click(function() {
+
+	// -- and if you're at the last slide of the website...
+		if (i === $('section').length)
+		{
+	// -- -- reset the var i to 1
+			i = 1;
+		}
+	// -- take the page back to the first slide
+		$(document).scrollTo('section:eq('+i+')', 800, {axis:'y', easing:'easeInOutQuart'});
+		
+	});
+
+	// when you click on the link elements within the nav...
+	$('.links').click(function() {
+	// -- scroll the the slide that has the same index value as the element you clicked
+		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {axis:'y', easing:'easeInOutQuart'});
+	});
+
+	// when you click on the more about me button...
+	$('#moreaboutme').click(function() {
+
+		sidePanelOpen();
+
+	});
+
+	// when you click on the less about me button...
+	$('#lessaboutme,section').click(function() {
+		if (moreAboutMeShown === true) {
+			sidePanelClose();
+		}
+	});
+
+	$('#projmgmt, #webdev, #business').mouseenter(function() {
+		$(this).children().stop().animate({'opacity':'1'}, 500);
+	});
+
+	$('#projmgmt, #webdev, #business').mouseleave(function() {
+		$(this).children().stop().css({'opacity':'0'});
+	});
+
+});
 
 $(window).load(function() {
 
@@ -91,86 +169,6 @@ $(window).resize(function() {
 
 });
 
-
-$(document).ready(function() {	
-
-	// align the moreaboutme slides
-	// -- sets the moreaboutme_content width to the combined width of all slides
-	$('#moreaboutme_container').css({'left':'-33%'});
-
-	// connect button animation
-
-	// -- effect when mouse is over icon
-	$('.connect_icon li').mouseenter(function() {
-		$('.connect_icon li').not($(this)).stop().animate({'opacity':'0.6'}, 100);
-	});
-
-	// -- effect when mouse leaves the icon
-	$('.connect_icon li').mouseleave(function() {
-		$('.connect_icon li').stop().animate({'opacity':'1'}, 500);
-	});
-
-
-	// about me items hover effect
-
-	// -- effect when mouse is over icon
-	$('.links').mouseenter(function() {
-		$(this).children().stop().fadeIn(200);
-	});
-
-	// -- effect when mouse leaves the icon
-	$('.links').mouseleave(function() {
-		$(this).children().stop().fadeOut(200);
-	});
-
-	// scrollTo plugin setup
-
-	// if you click on the page_down element
-	$('#page_down').click(function() {
-
-	// -- and if you're at the last slide of the website...
-		if (i === $('section').length)
-		{
-	// -- -- reset the var i to 1
-			i = 1;
-		}
-	// -- take the page back to the first slide
-		$(document).scrollTo('section:eq('+i+')', 800, {axis:'y', easing:'easeInOutQuart'});
-		
-	});
-
-	// when you click on the link elements within the top nav...
-	$('.links').click(function() {
-	// -- scroll the the slide that has the same index value as the element you clicked
-		$(document).scrollTo('section:eq('+($(this).index()+1)+')', 800, {axis:'y', easing:'easeInOutQuart'});
-	});
-
-	// -- when you click on the more about me button...
-	$('#moreaboutme').click(function() {
-
-		sidePanelOpen();
-
-	});
-
-	$('#logo_small').click(function() {
-		if (moreAboutMeShown === false) {
-			sidePanelOpen();		
-		}
-
-		else if (moreAboutMeShown === true) {
-			sidePanelClose();	
-		}
-	});
-
-	// -- when you click on the less about me button...
-	$('#lessaboutme,section').click(function() {
-		if (moreAboutMeShown === true) {
-			sidePanelClose();
-		}
-	});
-
-});
-
 $(window).scroll(function() {
 
 	// at each croll event, update the values of these variables
@@ -180,15 +178,20 @@ $(window).scroll(function() {
 		skillsHeight = $('#skills').height(),
 		experienceHeight = $('#skills').height();
 
-	// if the top scroll position is within the splash section
-	if (windowScrollTop < splashHeight)
+	if (windowScrollTop < splashHeight / 2)
 	{
-		i = 1;
 		sidePanelClose();
 	}
 
+	// if the top scroll position is within the splash section
+	else if (windowScrollTop < splashHeight)
+	{
+		i = 1;
+		$('.links').removeClass('selected');
+	}
+
 	// if the top scroll position is within the first section
-	else if (windowScrollTop >= splashHeight && windowScrollTop < splashHeight + aboutmeHeight - 30)
+	else if (windowScrollTop < splashHeight + aboutmeHeight - 30)
 	{
 		i = 2;
 		$('.links').eq(i-2).addClass('selected');
@@ -196,7 +199,7 @@ $(window).scroll(function() {
 	}
 
 	// if the top scroll position is within the second section
-	else if (windowScrollTop >= (splashHeight + aboutmeHeight - 30) && windowScrollTop < splashHeight + aboutmeHeight + skillsHeight)
+	else if (windowScrollTop < splashHeight + aboutmeHeight + skillsHeight)
 	{
 		i = 3;
 		$('.links').eq(i-2).addClass('selected');
@@ -214,15 +217,15 @@ $(window).scroll(function() {
 			});
 		});
 
-		$('#data').delay(3000).animate({'opacity':1},500, function() {
-			$('#data_container li').each(function() {
+		$('#business').delay(3000).animate({'opacity':1},500, function() {
+			$('#business_container li').each(function() {
 				$(this).animate({'opacity':1},500 * $(this).index());
 			});
 		});
 	}
 
 	// if the top scroll position is within the third section
-	else if (windowScrollTop >= splashHeight + aboutmeHeight + skillsHeight && windowScrollTop < splashHeight + aboutmeHeight + skillsHeight + experienceHeight)
+	else if (windowScrollTop < splashHeight + aboutmeHeight + skillsHeight + experienceHeight)
 	{
 		i = 4;
 		$('.links').eq(i-2).addClass('selected');
